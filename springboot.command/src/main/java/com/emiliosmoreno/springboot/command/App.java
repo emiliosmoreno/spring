@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.emiliosmoreno.springboot.command.beans.UsuarioBean;
+import com.emiliosmoreno.springboot.command.core.msdos.Command_Dir;
 import com.emiliosmoreno.springboot.command.repository.UsuarioRepository;
 
 @SpringBootApplication
@@ -34,6 +35,13 @@ public class App implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		log.info("StartApplication...");
 		runJDBC();
+		runCommandDir();
+	}
+
+	private void runCommandDir() {
+		Command_Dir comando=new Command_Dir();
+		comando.execute();
+		
 	}
 
 	void runJDBC() {
